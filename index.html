@@ -22,109 +22,109 @@
         }
     </script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen py-10 px-4">
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen py-6 sm:py-10 px-4">
 
-    <div class="max-w-3xl mx-auto space-y-8">
+    <div class="max-w-3xl mx-auto space-y-6 sm:space-y-8">
 
         <div class="text-center space-y-2">
-            <h1 class="text-3xl font-bold text-slate-900">ArenaKita</h1>
-            <p class="text-slate-500">Sistem Reservasi Lapangan Olahraga</p>
+            <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">ArenaKita</h1>
+            <p class="text-sm sm:text-base text-slate-500">Sistem Reservasi Lapangan Olahraga</p>
         </div>
 
-        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
-            <h2 class="text-xl font-semibold mb-6 flex items-center gap-2 text-slate-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-white p-5 sm:p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-lg sm:text-xl font-semibold mb-5 sm:mb-6 flex items-center gap-2 text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 Formulir Pemesanan
             </h2>
             
-            <form id="formBooking" class="space-y-5">
+            <form id="formBooking" class="space-y-4 sm:space-y-5">
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
-                    <input type="text" id="nama" placeholder="Masukkan nama Anda" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    <input type="text" id="nama" placeholder="Masukkan nama Anda" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm sm:text-base" required>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">No. WhatsApp</label>
-                        <input type="number" id="whatsapp" placeholder="Contoh: 08123456789" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                        <input type="number" id="whatsapp" placeholder="Contoh: 08123456789" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm sm:text-base" required>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                        <input type="email" id="email" placeholder="email@contoh.com" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                        <input type="email" id="email" placeholder="email@contoh.com" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm sm:text-base" required>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Kategori Olahraga</label>
-                        <select id="kategori" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all cursor-pointer" required>
+                        <select id="kategori" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all cursor-pointer text-sm sm:text-base truncate" required>
                             <option value="" disabled selected>Memuat kategori...</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Pilih Lapangan</label>
-                        <select id="lapangan" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all cursor-pointer" disabled required>
+                        <select id="lapangan" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all cursor-pointer text-sm sm:text-base truncate" disabled required>
                             <option value="" disabled selected>Pilih kategori terlebih dahulu...</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Tanggal Main</label>
-                        <input type="date" id="tanggal" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                        <input type="date" id="tanggal" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm sm:text-base" required>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Jam Mulai</label>
-                        <input type="time" id="jam" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                        <input type="time" id="jam" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm sm:text-base" required>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Durasi (Jam)</label>
-                        <input type="number" id="durasi" min="1" placeholder="Berapa jam?" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                        <input type="number" id="durasi" min="1" placeholder="Berapa jam?" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm sm:text-base" required>
                     </div>
                 </div>
 
-                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 flex justify-between items-center mt-2">
+                <div class="bg-blue-50 p-3 sm:p-4 rounded-xl border border-blue-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mt-2">
                     <div>
-                        <p class="text-sm text-blue-700 font-medium">Estimasi Total Bayar</p>
-                        <p class="text-xs text-blue-500 mt-0.5">*Harga belum termasuk penyesuaian jam operasional</p>
+                        <p class="text-xs sm:text-sm text-blue-700 font-medium">Estimasi Total Bayar</p>
+                        <p class="text-[10px] sm:text-xs text-blue-500 mt-0.5">*Harga belum termasuk penyesuaian jam operasional</p>
                     </div>
-                    <div class="text-xl font-bold text-blue-700" id="estimasiHarga">Rp 0</div>
+                    <div class="text-lg sm:text-xl font-bold text-blue-700" id="estimasiHarga">Rp 0</div>
                 </div>
 
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-4 rounded-xl transition-colors shadow-sm mt-4">
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 sm:py-3.5 px-4 rounded-xl transition-colors shadow-sm mt-4 text-sm sm:text-base">
                     Pesan Lapangan Sekarang
                 </button>
             </form>
         </div>
 
-        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
-            <h2 class="text-xl font-semibold mb-4 flex items-center gap-2 text-slate-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-white p-5 sm:p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2 text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
                 Lacak Status Pesanan
             </h2>
             
-            <div class="flex flex-col md:flex-row gap-3">
-                <input type="text" id="idPesanan" placeholder="Contoh: ORD-260714-123" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
-                <button onclick="lacakPesanan()" class="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-xl transition-colors shadow-sm whitespace-nowrap" id="btnLacak">
+            <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                <input type="text" id="idPesanan" placeholder="Contoh: ORD-260714-123" class="w-full p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all text-sm sm:text-base">
+                <button onclick="lacakPesanan()" class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-2.5 sm:py-3 rounded-xl transition-colors shadow-sm whitespace-nowrap text-sm sm:text-base" id="btnLacak">
                     Cek Status
                 </button>
             </div>
 
-            <div id="hasilLacak" class="mt-6 hidden bg-slate-50 border border-slate-200 p-5 rounded-xl space-y-4">
-                <div class="flex justify-between items-start border-b border-slate-200 pb-3">
+            <div id="hasilLacak" class="mt-5 sm:mt-6 hidden bg-slate-50 border border-slate-200 p-4 sm:p-5 rounded-xl space-y-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-200 pb-3 gap-2">
                     <div>
-                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Nomor Pesanan</p>
-                        <p class="text-lg font-bold text-slate-800" id="resId">-</p>
+                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider font-semibold">Nomor Pesanan</p>
+                        <p class="text-base sm:text-lg font-bold text-slate-800" id="resId">-</p>
                     </div>
-                    <span id="resStatus" class="px-3 py-1 text-xs font-bold rounded-full uppercase">Pending</span>
+                    <span id="resStatus" class="px-3 py-1 text-[10px] sm:text-xs font-bold rounded-full uppercase self-start sm:self-auto">Pending</span>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-4 text-sm border-b border-slate-200 pb-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm border-b border-slate-200 pb-4 break-words">
                     <div>
                         <p class="text-slate-500">Nama Pemesan</p>
                         <p class="font-medium text-slate-800" id="resNama">-</p>
@@ -143,7 +143,7 @@
                     </div>
                     <div>
                         <p class="text-slate-500">Total Tagihan</p>
-                        <p class="font-bold text-blue-700 text-base" id="resTotal">-</p>
+                        <p class="font-bold text-blue-700 text-sm sm:text-base" id="resTotal">-</p>
                     </div>
                     <div>
                         <p class="text-slate-500">Batas Waktu Bayar</p>
@@ -151,17 +151,17 @@
                     </div>
                 </div>
 
-                <div id="instruksiBayarBox" class="bg-amber-50 border border-amber-200 p-4 rounded-xl space-y-2 text-sm text-amber-900 hidden">
+                <div id="instruksiBayarBox" class="bg-amber-50 border border-amber-200 p-3 sm:p-4 rounded-xl space-y-2 text-xs sm:text-sm text-amber-900 hidden">
                     <p class="font-semibold flex items-center gap-1">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Instruksi Pembayaran:
                     </p>
-                    <ul class="list-decimal pl-4 space-y-1 text-xs text-amber-800">
+                    <ul class="list-decimal pl-4 space-y-1 text-[11px] sm:text-xs text-amber-800">
                         <li>Transfer sesuai total tagihan ke <strong>Bank Mandiri: 123-456789-000 (a.n ArenaKita)</strong>.</li>
                         <li>Simpan bukti transfer Anda dalam bentuk screenshot/foto.</li>
-                        <li>Kirimkan bukti transfer beserta Nomor Pesanan ke WhatsApp Admin kami untuk konfirmasi instant.</li>
+                        <li>Kirimkan bukti transfer beserta Nomor Pesanan ke WhatsApp Admin.</li>
                     </ul>
                 </div>
             </div>
@@ -174,7 +174,6 @@
         const HARGA_PER_JAM = 150000;
         let masterLapangan = [];
 
-        // AMBIL MASTER DATA LAPANGAN SAAT HALAMAN DI-LOAD
         window.addEventListener('DOMContentLoaded', () => {
             fetch(`${GAS_URL}?action=getLapangan`)
             .then(response => response.json())
@@ -189,7 +188,6 @@
 
         function initDropdownKategori() {
             const selectKategori = document.getElementById('kategori');
-            // Dapatkan daftar kategori unik dari master data
             const kategoriUnik = [...new Set(masterLapangan.map(item => item.kategori))];
             
             selectKategori.innerHTML = '<option value="" disabled selected>Pilih kategori...</option>';
@@ -200,7 +198,6 @@
                 selectKategori.appendChild(opt);
             });
 
-            // Trigger perubahan kategori untuk mengubah daftar lapangan
             selectKategori.addEventListener('change', function() {
                 updateDropdownLapangan(this.value);
             });
@@ -211,7 +208,6 @@
             selectLapangan.innerHTML = '<option value="" disabled selected>Pilih lapangan...</option>';
             selectLapangan.disabled = false;
 
-            // Filter lapangan berdasarkan kategori yang dipilih
             const filteredLapangan = masterLapangan.filter(item => item.kategori === kategoriTerpilih);
             filteredLapangan.forEach(lap => {
                 const opt = document.createElement('option');
@@ -227,7 +223,6 @@
             document.getElementById('estimasiHarga').innerText = "Rp " + estimasi.toLocaleString('id-ID');
         });
 
-        // Submit Booking
         document.getElementById('formBooking').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -270,7 +265,6 @@
             });
         });
 
-        // Lacak Pesanan
         function lacakPesanan() {
             const id = document.getElementById('idPesanan').value;
             if(!id) return alert("Silakan masukkan nomor pesanan!");
@@ -299,13 +293,13 @@
                     statusBadge.innerText = data.data.status;
                     
                     if(statusText === 'lunas') {
-                        statusBadge.className = "px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full uppercase";
+                        statusBadge.className = "px-3 py-1 bg-green-100 text-green-800 text-[10px] sm:text-xs font-bold rounded-full uppercase";
                         boxInstruksi.classList.add('hidden');
                     } else if(statusText === 'batal') {
-                        statusBadge.className = "px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full uppercase";
+                        statusBadge.className = "px-3 py-1 bg-red-100 text-red-800 text-[10px] sm:text-xs font-bold rounded-full uppercase";
                         boxInstruksi.classList.add('hidden');
                     } else {
-                        statusBadge.className = "px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase";
+                        statusBadge.className = "px-3 py-1 bg-amber-100 text-amber-800 text-[10px] sm:text-xs font-bold rounded-full uppercase";
                         boxInstruksi.classList.remove('hidden');
                     }
 
