@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Lapangan Olahraga</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen py-10 px-4">
+
+    <div class="max-w-3xl mx-auto space-y-8">
+
+        <div class="text-center space-y-2">
+            <h1 class="text-3xl font-bold text-slate-900">ArenaKita</h1>
+            <p class="text-slate-500">Sistem Reservasi Lapangan Olahraga</p>
+        </div>
+
+        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-xl font-semibold mb-6 flex items-center gap-2 text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/xl" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Formulir Pemesanan
+            </h2>
+            
+            <form id="formBooking" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama Anda" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">No. WhatsApp</label>
+                        <input type="number" id="whatsapp" placeholder="Contoh: 08123456789" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                        <input type="email" id="email" placeholder="email@contoh.com" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Kategori Olahraga</label>
+                        <select id="kategori" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all cursor-pointer" required>
+                            <option value="" disabled selected>Pilih kategori...</option>
+                            <option value="Futsal">Futsal</option>
+                            <option value="Basket">Basket</option>
+                            <option value="Mini Soccer">Mini Soccer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Pilih Lapangan</label>
+                        <select id="lapangan" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all cursor-pointer" required>
+                            <option value="" disabled selected>Pilih lapangan...</option>
+                            <option value="Lapangan A - Indoor">Lapangan A - Indoor</option>
+                            <option value="Lapangan B - Outdoor">Lapangan B - Outdoor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Tanggal Main</label>
+                        <input type="date" id="tanggal" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Jam Mulai</label>
+                        <input type="time" id="jam" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Durasi (Jam)</label>
+                        <input type="number" id="durasi" min="1" placeholder="Berapa jam?" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 flex justify-between items-center mt-2">
+                    <div>
+                        <p class="text-sm text-blue-700 font-medium">Estimasi Total Bayar</p>
+                        <p class="text-xs text-blue-500 mt-0.5">*Harga belum termasuk penyesuaian jam operasional</p>
+                    </div>
+                    <div class="text-xl font-bold text-blue-700" id="estimasiHarga">Rp 0</div>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-4 rounded-xl transition-colors shadow-sm mt-4">
+                    Pesan Lapangan Sekarang
+                </button>
+            </form>
+        </div>
+
+        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-xl font-semibold mb-4 flex items-center gap-2 text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Lacak Status Pesanan
+            </h2>
+            
+            <div class="flex flex-col md:flex-row gap-3">
+                <input type="text" id="idPesanan" placeholder="Contoh: ORD-260714-123" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                <button onclick="lacakPesanan()" class="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-xl transition-colors shadow-sm whitespace-nowrap" id="btnLacak">
+                    Cek Status
+                </button>
+            </div>
+
+            <div id="hasilLacak" class="mt-6 hidden bg-slate-50 border border-slate-200 p-5 rounded-xl space-y-4">
+                <div class="flex justify-between items-start border-b border-slate-200 pb-3">
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Nomor Pesanan</p>
+                        <p class="text-lg font-bold text-slate-800" id="resId">-</p>
+                    </div>
+                    <span id="resStatus" class="px-3 py-1 text-xs font-bold rounded-full uppercase">Pending</span>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 text-sm border-b border-slate-200 pb-4">
+                    <div>
+                        <p class="text-slate-500">Nama Pemesan</p>
+                        <p class="font-medium text-slate-800" id="resNama">-</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-500">Lapangan</p>
+                        <p class="font-medium text-slate-800" id="resLapangan">-</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-500">Jadwal Main</p>
+                        <p class="font-medium text-slate-800" id="resJadwal">-</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-500">Durasi Bermain</p>
+                        <p class="font-medium text-slate-800" id="resDurasi">-</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-500">Total Tagihan</p>
+                        <p class="font-bold text-blue-700 text-base" id="resTotal">-</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-500">Batas Waktu Bayar</p>
+                        <p class="font-medium text-red-600" id="resBatasWaktu">-</p>
+                    </div>
+                </div>
+
+                <div id="instruksiBayarBox" class="bg-amber-50 border border-amber-200 p-4 rounded-xl space-y-2 text-sm text-amber-900 hidden">
+                    <p class="font-semibold flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Instruksi Pembayaran:
+                    </p>
+                    <ul class="list-decimal pl-4 space-y-1 text-xs text-amber-800">
+                        <li>Transfer sesuai total tagihan ke <strong>Bank Mandiri: 123-456789-000 (a.n ArenaKita)</strong>.</li>
+                        <li>Simpan bukti transfer Anda dalam bentuk screenshot/foto.</li>
+                        <li>Kirimkan bukti transfer beserta Nomor Pesanan ke WhatsApp Admin kami untuk konfirmasi instant.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbyg8Z0148tDCcWEeprPQtrtvPXxzUFr--VSjsmLOUhFVeQabVIGtUYm-_JQszpm-cdV/exec";
+        const HARGA_PER_JAM = 150000;
+
+        document.getElementById('durasi').addEventListener('input', function() {
+            let durasi = this.value;
+            let estimasi = durasi * HARGA_PER_JAM;
+            document.getElementById('estimasiHarga').innerText = "Rp " + estimasi.toLocaleString('id-ID');
+        });
+
+        // Submit Booking
+        document.getElementById('formBooking').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const payload = {
+                nama_pemesan: document.getElementById('nama').value,
+                no_whatsapp: document.getElementById('whatsapp').value,
+                email: document.getElementById('email').value,
+                kategori: document.getElementById('kategori').value,
+                nama_lapangan: document.getElementById('lapangan').value,
+                tanggal_main: document.getElementById('tanggal').value,
+                jam_mulai: document.getElementById('jam').value,
+                durasi_jam: document.getElementById('durasi').value,
+                total_harga: document.getElementById('durasi').value * HARGA_PER_JAM
+            };
+
+            const btnSubmit = e.target.querySelector('button[type="submit"]');
+            btnSubmit.innerText = "Memproses...";
+            btnSubmit.disabled = true;
+
+            fetch(GAS_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === "success") {
+                    alert(`✅ PESANAN BERHASIL!\n\nNomor Pesanan: ${data.id_pesanan}\nBatas Pembayaran: ${data.batas_waktu}`);
+                    e.target.reset();
+                    document.getElementById('estimasiHarga').innerText = "Rp 0";
+                } else {
+                    alert("❌ Gagal: " + data.message);
+                }
+            })
+            .catch(error => alert("Gagal terhubung ke server."))
+            .finally(() => {
+                btnSubmit.innerText = "Pesan Lapangan Sekarang";
+                btnSubmit.disabled = false;
+            });
+        });
+
+        // Lacak Pesanan
+        function lacakPesanan() {
+            const id = document.getElementById('idPesanan').value;
+            if(!id) return alert("Silakan masukkan nomor pesanan!");
+
+            const btnLacak = document.getElementById('btnLacak');
+            btnLacak.innerText = "Mencari...";
+            btnLacak.disabled = true;
+
+            fetch(`${GAS_URL}?action=lacakPesanan&id_pesanan=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                const divHasil = document.getElementById('hasilLacak');
+                const boxInstruksi = document.getElementById('instruksiBayarBox');
+                
+                if(data.status === "success") {
+                    document.getElementById('resId').innerText = data.data.id_pesanan;
+                    document.getElementById('resNama').innerText = data.data.nama;
+                    document.getElementById('resLapangan').innerText = data.data.lapangan;
+                    document.getElementById('resJadwal').innerText = data.data.jadwal;
+                    document.getElementById('resDurasi').innerText = data.data.durasi;
+                    document.getElementById('resTotal').innerText = "Rp " + data.data.total.toLocaleString('id-ID');
+                    document.getElementById('resBatasWaktu').innerText = data.data.batas_waktu;
+                    
+                    const statusText = data.data.status.toLowerCase();
+                    const statusBadge = document.getElementById('resStatus');
+                    statusBadge.innerText = data.data.status;
+                    
+                    if(statusText === 'lunas') {
+                        statusBadge.className = "px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full uppercase";
+                        boxInstruksi.classList.add('hidden'); // Sembunyikan instruksi jika lunas
+                    } else if(statusText === 'batal') {
+                        statusBadge.className = "px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full uppercase";
+                        boxInstruksi.classList.add('hidden'); // Sembunyikan instruksi jika batal
+                    } else {
+                        statusBadge.className = "px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase";
+                        boxInstruksi.classList.remove('hidden'); // Tampilkan instruksi jika pending
+                    }
+
+                    divHasil.classList.remove('hidden');
+                } else {
+                    alert("Nomor pesanan tidak ditemukan.");
+                    divHasil.classList.add('hidden');
+                }
+            })
+            .catch(error => alert("Gagal mengecek pesanan."))
+            .finally(() => {
+                btnLacak.innerText = "Cek Status";
+                btnLacak.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>
